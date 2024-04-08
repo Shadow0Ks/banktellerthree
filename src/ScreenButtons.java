@@ -223,7 +223,7 @@ public class ScreenButtons extends JFrame implements ItemListener {
     public void DepositMoneyButton(CustomerInformationScreen customerInformationScreen){
         setLayout(null);
         int buttonWidth = 200;
-        int buttonHeight = 70;
+        int buttonHeight = 100;
         int buttonX = (nextPageX - buttonWidth) - 2;
         int buttonY = (nextPageY - buttonHeight) - 2;
 

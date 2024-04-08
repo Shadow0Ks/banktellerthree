@@ -30,7 +30,7 @@ public class DepositScreen extends JFrame{
 
     }
     public void depositScreenContent(Graphics graphics){
-        font = new Font("Arial", Font.ITALIC, calculateFontSize() + 50);
+        font = new Font("Arial", Font.ITALIC, calculateFontSize() + 10);
         paintComponents(graphics);
         graphics.setFont(font);
         graphics.setColor(Color.BLACK);
@@ -55,5 +55,9 @@ public class DepositScreen extends JFrame{
         super.paint(graphics);
         drawRectangles(graphics);
     }
+
+
+
+
 
 }
