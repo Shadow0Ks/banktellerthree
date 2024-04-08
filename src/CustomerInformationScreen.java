@@ -1,10 +1,13 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class CustomerInformationScreen extends JFrame {
     public static int SCREEN_WIDTH = 800;
     public static int SCREEN_HEIGHT = 600;
 
+    private ScreenButtons screenButtons;
 
+    final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
     static JLabel JFirstName;
     static JLabel JLastName;
     static JLabel JMoneyInBank;
@@ -18,7 +21,68 @@ public class CustomerInformationScreen extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        //setLayout(new BorderLayout());
         setLayout(null);
+
+
+        //for setting positions on screen
+        int labelX = 100;
+        int labelY = 50;
+        int labelWidth = 500;
+        int labelHeight = 30;
+        int gap = 10;
+        ////////////////////////
+
+//        JPanel formPanel = new JPanel();
+//        formPanel.setLayout(new GridLayout(5, 1, 5, 5));
+
+        JFirstName = new JLabel("First Name:");
+        JFirstName.setFont(mainFont);
+        JFirstName.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JFirstName);
+        //formPanel.add(JFirstName);
+
+        //adjusts for screen position
+        labelY += labelHeight + gap;
+
+        JLastName = new JLabel("Last Name:");
+        JLastName.setFont(mainFont);
+        JLastName.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JLastName);
+        //formPanel.add(JLastName);
+
+
+        //adjusts for screen position
+        labelY += labelHeight + gap;
+        JMoneyInBank = new JLabel("Money in Bank:");
+        JMoneyInBank.setFont(mainFont);
+        JMoneyInBank.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JMoneyInBank);
+        //formPanel.add(JMoneyInBank);
+
+        //adjusts for screen position
+        labelY += labelHeight + gap;
+
+        JCreditScore = new JLabel("Your Credit Score:");
+        JCreditScore.setFont(mainFont);
+        JCreditScore.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JCreditScore);
+        //formPanel.add(JCreditScore);
+
+        //adjusts for screen position
+        labelY += labelHeight + gap;
+
+        JCustomerID = new JLabel("4 digit number ID:");
+        JCustomerID.setFont(mainFont);
+        JCustomerID.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JCustomerID);
+        //formPanel.add(JCustomerID);
+
+        //add(formPanel, BorderLayout.CENTER);
+
+
+        screenButtons = new ScreenButtons();
+        screenButtons.TakeOutLoanButton(this);
 
     }
 

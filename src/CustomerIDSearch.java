@@ -12,8 +12,11 @@ public class CustomerIDSearch extends JFrame{
     public static int SCREEN_HEIGHT = 600;
     static String file = "src\\customer_data.csv";
     final private Font mainFont = new Font ("Segeo Print", Font.BOLD, 18);
+
+
     static JTextField TextCustomerID;
     static JTextField IDTextField;
+    static int creditScore;
 
     private ScreenButtons screenButtons;
 
@@ -28,6 +31,11 @@ public class CustomerIDSearch extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
         setLayout(null);
+
+        IDTextField = new JTextField();
+        IDTextField.setFont(mainFont);
+        IDTextField.setBounds(200, 200, 200, 30);
+        add(IDTextField);
 
         screenButtons = new ScreenButtons();
         screenButtons.ButtonThatTakesToInfoScreen(this);
@@ -60,7 +68,7 @@ public class CustomerIDSearch extends JFrame{
         graphics.drawRect(rectX, rectY, rectWidth,rectHeight);
         CustomerIDScreenInfo(graphics);
 
-        IDTextFieldScreenDisplay();
+
 
     }
 
@@ -70,59 +78,62 @@ public class CustomerIDSearch extends JFrame{
     }
 
 
-    public void IDTextFieldScreenDisplay(){
 
-        setLayout(new GridLayout(10, 2, 3, 5));
-        IDTextField = new JTextField();
-        IDTextField.setFont(mainFont);
-        add(IDTextField);
-    }
 
 
     //call this class when next button page button is performed
-    public void checkCustomerID() {
-        String customerIDCheck = TextCustomerID.getText();
-        boolean customerDoesExist = false;
-        try (BufferedReader read = new BufferedReader(new FileReader(file))) {
+    public static void checkCustomerID() {
+        String customerID = IDTextField.getText().trim(); // Trim to remove leading and trailing spaces
+        boolean found = false;
+        String[] customerInfo = null;
+
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = read.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
+                System.out.println("Checking line: " + line);
+                if (data.length > 4) {
 
-                String customerID = data[4].trim();
-                if (customerID.equals(customerIDCheck)) {
-                    // Customer ID exists
-                    System.out.println("Customer ID does exist");
-                    customerDoesExist = true;
 
-                    // Create an ArrayList to store customer information
-                    List<String> customerInfo = new ArrayList<>();
+                    String idFromFile = data[4].trim();
+                    System.out.println("Data[4]: " + idFromFile);
+                    System.out.println("Customer ID Entered: " + customerID);
 
-                    for (int i = 0; i < data.length; i++) {
-                        customerInfo.add(data[i]);
+
+                    if (idFromFile.equals(customerID)) {
+                        found = true;
+                        creditScore = Integer.parseInt(data[3]);
+
+
+                        customerInfo = data;
+                        //CustomerInformationScreen customerInformationScreen = new CustomerInformationScreen();
+
+                        System.out.println("Customer found!");
+                        break;
                     }
-
-                    // Display customer information on the infoscreen
-                    CustomerInformationScreen infroScreen = new CustomerInformationScreen();
-                    infroScreen.displayCustomerInfo(customerInfo.toArray(new String[0]));
-
-                    dispose();
-                    break;
                 }
             }
+            if (!found) {
+                System.out.println("Customer not found!");
+                //make it send you back to the EnterCustomerInformationScreen
+                AccountQuestionScreen accountQuestionScreen = new AccountQuestionScreen();
+                SwingUtilities.getWindowAncestor(IDTextField).dispose();
 
-            if (!customerDoesExist) {
-                // Customer ID does not exist
-                System.out.println("Customer ID does not Exist");
-                dispose();
-                AccountQuestionScreen aq = new AccountQuestionScreen();
-                aq.setVisible(true);
-                // Take me back to the main screen if needed
+
+
+
+            }
+            else {
+                // Display customer information in CustomerInformationScreen
+                CustomerInformationScreen customerInformationScreen = new CustomerInformationScreen();
+                customerInformationScreen.displayCustomerInfo(customerInfo);
+                // Dispose the current frame
+                SwingUtilities.getWindowAncestor(IDTextField).dispose();
             }
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

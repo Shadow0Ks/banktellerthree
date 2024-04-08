@@ -9,6 +9,7 @@ public class ScreenButtons extends JFrame implements ItemListener {
     JButton nextPage;
     JButton Save;
     JButton NextPageInfoButton;
+    JButton loanButton;
     private JButton yesAccountDoesExistButton;
     private JButton noAccountDoesNotExistButton;
 
@@ -151,20 +152,43 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            CustomerIDSearch.checkCustomerID();
                             customerIDSearch.dispose();
-                            CustomerInformationScreen customerInformationScreen = new CustomerInformationScreen();
-                            customerInformationScreen.setVisible(true);
+                        }
+                    });
+                }
+            }
+        });
+    }
 
+    public void TakeOutLoanButton(CustomerInformationScreen customerInformationScreen){
+        setLayout(null);
+        int buttonWidth = 200;
+        int buttonHeight = 50;
+        int buttonX = (nextPageX - buttonWidth) - 2;
+        int buttonY = (nextPageY - buttonHeight) - 2;
+
+        loanButton = new JButton("Take out loan");
+        loanButton.setBounds(buttonX,buttonY,300,30);
+        //add(loanButton,BorderLayout.SOUTH);
+        customerInformationScreen.add(loanButton);
+
+        loanButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == loanButton){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            customerInformationScreen.dispose();
+                            LoanScreen loanScreen = new LoanScreen();
                         }
                     });
                 }
             }
         });
 
-
-
     }
-
 
     @Override
     public void itemStateChanged(ItemEvent e) {
