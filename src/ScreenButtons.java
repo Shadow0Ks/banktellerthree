@@ -10,6 +10,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
     JButton Save;
     JButton NextPageInfoButton;
     JButton loanButton;
+
+    JButton depositButton;
     private JButton yesAccountDoesExistButton;
     private JButton noAccountDoesNotExistButton;
 
@@ -161,6 +163,36 @@ public class ScreenButtons extends JFrame implements ItemListener {
         });
     }
 
+    public void ButtonThatTakesBackToWelcomeScreen(LoanScreen welcomeScreen){
+        int buttonWidth = 200;
+        int buttonHeight = 50;
+        int buttonX = (nextPageX - buttonWidth) - 2;
+        int buttonY = (nextPageY - buttonHeight) - 2;
+
+        nextPage = new JButton("Main Screen");
+        nextPage.setBounds(buttonX,buttonY,300,30);
+        add(nextPage,BorderLayout.SOUTH);
+        welcomeScreen.add(nextPage);
+
+        nextPage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == nextPage){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            welcomeScreen.dispose();
+
+
+                            AccountQuestionScreen accountQuestionScreen = new AccountQuestionScreen();
+                            accountQuestionScreen.setVisible(true);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
     public void TakeOutLoanButton(CustomerInformationScreen customerInformationScreen){
         setLayout(null);
         int buttonWidth = 200;
@@ -187,8 +219,35 @@ public class ScreenButtons extends JFrame implements ItemListener {
                 }
             }
         });
-
     }
+    public void DepositMoneyButton(CustomerInformationScreen customerInformationScreen){
+        setLayout(null);
+        int buttonWidth = 200;
+        int buttonHeight = 70;
+        int buttonX = (nextPageX - buttonWidth) - 2;
+        int buttonY = (nextPageY - buttonHeight) - 2;
+
+        depositButton = new JButton("Deposit Money");
+        depositButton.setBounds(buttonX,buttonY,300,30);
+        customerInformationScreen.add(depositButton);
+
+        depositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == depositButton){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            customerInformationScreen.dispose();
+                            DepositScreen depositScreen = new DepositScreen();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+
 
     @Override
     public void itemStateChanged(ItemEvent e) {

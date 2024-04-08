@@ -50,6 +50,12 @@ public class LoanScreen extends JFrame{
 
             }
         });
+
+
+
+
+        screenButtons = new ScreenButtons();
+        screenButtons.ButtonThatTakesBackToWelcomeScreen(this);
     }
 
     public void LoanScreenContent(Graphics graphics){
