@@ -19,12 +19,15 @@ public class LoanCalculations {
         }
 
 
-        // Adjusting interest rate based on income
-        if (income >= 100000) {
+        // Adjusting interest rate based on monthly income
+        if (income >= 10000) {
             interestRateAdjustment -= 0.7;
-        } else if (income >= 80000) {
+        } else if (income >= 8000) {
+            interestRateAdjustment -= 0.6;
+        } else if (income >= 5000) {
             interestRateAdjustment -= 0.4;
-        } else if (income >= 50000) {
+        }
+        else if (income >= 4000) {
             interestRateAdjustment -= 0.1;
         }
         else {

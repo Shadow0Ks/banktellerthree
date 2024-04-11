@@ -120,9 +120,6 @@ public class CustomerIDSearch extends JFrame{
                 AccountQuestionScreen accountQuestionScreen = new AccountQuestionScreen();
                 SwingUtilities.getWindowAncestor(IDTextField).dispose();
 
-
-
-
             }
             else {
                 // Display customer information in CustomerInformationScreen

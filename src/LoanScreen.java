@@ -20,19 +20,15 @@ public class LoanScreen extends JFrame{
 
     public LoanScreen(){
 
-
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("Bank Teller - Loan");
         setLocationRelativeTo(null);
         setVisible(true);
-
         setLayout(null);
-
         JTextMonthlyIncome = new JTextField();
         add(JTextMonthlyIncome);
-
 
 
         ///////////////////////////////////////////////////////////////////////
