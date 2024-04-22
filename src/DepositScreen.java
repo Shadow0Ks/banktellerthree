@@ -28,14 +28,17 @@ public class DepositScreen extends JFrame{
         graphics.drawRect(rectX, rectY, rectWidth,rectHeight);
         depositScreenContent(graphics);
 
+
+
+
     }
     public void depositScreenContent(Graphics graphics){
-        font = new Font("Arial", Font.ITALIC, calculateFontSize() + 10);
+        font = new Font("Arial", Font.ITALIC, calculateFontSize() + 2);
         paintComponents(graphics);
         graphics.setFont(font);
         graphics.setColor(Color.BLACK);
 
-        String message = "How much would you like to deposit";
+        String message = "How much would you like to deposit:";
 
         //set the location of the text
         int x = (getWidth() - graphics.getFontMetrics().stringWidth(message)) / 2;
