@@ -5,12 +5,17 @@ public class DepositScreen extends JFrame{
     public static int SCREEN_WIDTH = 800;
     public static int SCREEN_HEIGHT = 600;
 
+    private ScreenButtons screenButtons;
+
+    static int DepositAmount;
+
+    static JLabel JDepositMoney;
     private Font font;
     public DepositScreen(){
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        setTitle("Bank Teller - Deposit");
+        setTitle("Bank  - Deposit");
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -29,22 +34,38 @@ public class DepositScreen extends JFrame{
         depositScreenContent(graphics);
 
 
-
+        screenButtons = new ScreenButtons();
+        //this needs to be fixed the reason that it doesnt work is because I cant use "this" because it refrences another class, look for a solution(Make it dynamic or copy the exact same class)
+        //screenButtons.ButtonThatTakesBackToWelcomeScreen();
 
     }
     public void depositScreenContent(Graphics graphics){
         font = new Font("Arial", Font.ITALIC, calculateFontSize() + 2);
-        paintComponents(graphics);
-        graphics.setFont(font);
-        graphics.setColor(Color.BLACK);
+//        paintComponents(graphics);
+//        graphics.setFont(font);
+//        graphics.setColor(Color.BLACK);
+//
+//        String message = "How much would you like to deposit:";
+//
+//        //set the location of the text
+//        int x = (getWidth() - graphics.getFontMetrics().stringWidth(message)) / 2;
+//        int y = getHeight() / 2;
+//        //display the text on the screen
+//        graphics.drawString(message, x, y);
 
-        String message = "How much would you like to deposit:";
 
-        //set the location of the text
-        int x = (getWidth() - graphics.getFontMetrics().stringWidth(message)) / 2;
-        int y = getHeight() / 2;
-        //display the text on the screen
-        graphics.drawString(message, x, y);
+        int labelX = 100;
+        int labelY = 100;
+        int labelWidth = 500;
+        int labelHeight = 20;
+        int gap = 10;
+
+        JDepositMoney = new JLabel("How much would you like to deposit: ");
+        JDepositMoney.setFont(font);
+        JDepositMoney.setBounds(labelX,labelY,labelWidth,labelHeight);
+        add(JDepositMoney);
+
+
 
 
     }

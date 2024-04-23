@@ -6,12 +6,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class ScreenButtons extends JFrame implements ItemListener {
-    JButton nextPage;
-    JButton Save;
-    JButton NextPageInfoButton;
-    JButton loanButton;
+    private JButton nextPage;
+    private JButton Save;
+    private JButton NextPageInfoButton;
+    private JButton loanButton;
 
-    JButton depositButton;
+    private JButton depositButton;
     private JButton yesAccountDoesExistButton;
     private JButton noAccountDoesNotExistButton;
 
