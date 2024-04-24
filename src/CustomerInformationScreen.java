@@ -84,6 +84,7 @@ public class CustomerInformationScreen extends JFrame {
         screenButtons = new ScreenButtons();
         screenButtons.TakeOutLoanButton(this);
         screenButtons.DepositMoneyButton(this);
+        screenButtons.SetGoingToWorkButton(this);
 
     }
 

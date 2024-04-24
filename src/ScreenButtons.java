@@ -15,10 +15,32 @@ public class ScreenButtons extends JFrame implements ItemListener {
     private JButton yesAccountDoesExistButton;
     private JButton noAccountDoesNotExistButton;
 
+    private JButton goingToWork;
+
     final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
 
     int nextPageX = WelcomeScreen.SCREEN_WIDTH - 150;
     int nextPageY = WelcomeScreen.SCREEN_HEIGHT - 80;
+
+    public void SetGoingToWorkButton(CustomerInformationScreen customerInformationScreen){
+        goingToWork = new JButton("Go To Work");
+        goingToWork.setBounds(nextPageX,nextPageY, 100, 30);
+        add(goingToWork, BorderLayout.SOUTH);
+        customerInformationScreen.add(goingToWork);
+
+        goingToWork.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                customerInformationScreen.dispose();
+                WorkingScreenButton workingScreenButton1 = new WorkingScreenButton();
+
+
+            }
+        });
+
+    }
 
     public void setNextPage(WelcomeScreen welcomeScreen){
 
