@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import javax.swing.JOptionPane;
 
 public class ScreenButtons extends JFrame implements ItemListener {
     private JButton nextPage;
@@ -31,12 +32,16 @@ public class ScreenButtons extends JFrame implements ItemListener {
         goingToWork.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-                customerInformationScreen.dispose();
-                WorkingScreenButton workingScreenButton1 = new WorkingScreenButton();
-
-
+                if (e.getSource() == goingToWork){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            customerInformationScreen.dispose();
+                            AnimationWorkingScreen animationWorkingScreen = new AnimationWorkingScreen();
+                            animationWorkingScreen.setVisible(true);
+                        }
+                    });
+                }
             }
         });
 
@@ -45,7 +50,6 @@ public class ScreenButtons extends JFrame implements ItemListener {
     public void setNextPage(WelcomeScreen welcomeScreen){
 
         nextPage = new JButton("Next Page");
-
         nextPage.setBounds(nextPageX ,  nextPageY,100,30);
         add(nextPage, BorderLayout.SOUTH);
         welcomeScreen.add(nextPage);
@@ -268,6 +272,7 @@ public class ScreenButtons extends JFrame implements ItemListener {
             }
         });
     }
+
 
 
 

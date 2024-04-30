@@ -1,5 +1,3 @@
-import Animations.AnimationManager;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -24,7 +22,7 @@ public class WorkingScreenButton  extends JFrame {
         setLayout(null);
 
 
-        new AnimationManager();
+        new AnimationWorkingScreen();
 
 
     }

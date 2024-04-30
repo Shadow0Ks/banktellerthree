@@ -88,6 +88,7 @@ public class CustomerInformationScreen extends JFrame {
 
     }
 
+
     public static void displayCustomerInfo(String[] customerInfo){
         JFirstName.setText("First Name: " + customerInfo[0]);
         JLastName.setText("Last Name: " + customerInfo[1]);
