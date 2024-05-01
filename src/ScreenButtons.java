@@ -17,11 +17,41 @@ public class ScreenButtons extends JFrame implements ItemListener {
     private JButton noAccountDoesNotExistButton;
 
     private JButton goingToWork;
+    private JButton endOfMonthButton;
 
     final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
 
     int nextPageX = WelcomeScreen.SCREEN_WIDTH - 150;
     int nextPageY = WelcomeScreen.SCREEN_HEIGHT - 80;
+
+    public void ToNextMonth(AnimationWorkingScreen workingScreen){
+
+        int buttonWidth = 200;
+        int buttonHeight = 50;
+        int buttonX = (nextPageX - buttonWidth) - 2;
+        int buttonY = (nextPageY - buttonHeight) - 2;
+
+        endOfMonthButton = new JButton("Go to Next Month");
+        endOfMonthButton.setBounds(buttonX,buttonY,buttonWidth,buttonHeight);
+        add(endOfMonthButton,BorderLayout.SOUTH);
+        workingScreen.add(endOfMonthButton);
+
+        endOfMonthButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == goingToWork){
+                    EventQueue.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            workingScreen.dispose();
+                            CustomerIDSearch customerIDSearch = new CustomerIDSearch();
+                            //customerIDSearch.setVisible(true);
+                        }
+                    });
+                }
+            }
+        });
+    }
 
     public void SetGoingToWorkButton(CustomerInformationScreen customerInformationScreen){
         goingToWork = new JButton("Go To Work");
@@ -275,10 +305,6 @@ public class ScreenButtons extends JFrame implements ItemListener {
             }
         });
     }
-
-
-
-
     @Override
     public void itemStateChanged(ItemEvent e) {
 

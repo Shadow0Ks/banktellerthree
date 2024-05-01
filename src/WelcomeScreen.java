@@ -65,10 +65,6 @@ public class WelcomeScreen extends JFrame {
     }
 
 
-
-
-
-
     private int calculateFontSize(){
         int screenSize = getWidth() * getHeight();
         int fontSize = (int)(Math.sqrt(screenSize) / 50);
