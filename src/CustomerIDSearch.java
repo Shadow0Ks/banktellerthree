@@ -76,9 +76,6 @@ public class CustomerIDSearch extends JFrame{
 
 
 
-
-
-    //call this class when next button page button is performed
     public static void checkCustomerID() {
         String customerID = IDTextField.getText().trim(); // Trim to remove leading and trailing spaces
         boolean found = false;

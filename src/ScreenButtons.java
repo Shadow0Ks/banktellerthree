@@ -264,8 +264,11 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
-                            customerInformationScreen.dispose();
-                            DepositScreen depositScreen = new DepositScreen();
+                            SwingUtilities.invokeLater(() -> {
+                                customerInformationScreen.dispose();
+                                DepositScreen depositScreen = new DepositScreen();
+                                depositScreen.setVisible(true);
+                            });
                         }
                     });
                 }
