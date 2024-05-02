@@ -5,11 +5,12 @@ public class WelcomeScreen extends JFrame {
 
     public static int SCREEN_WIDTH = 800;
     public static int SCREEN_HEIGHT = 600;
+    Sound sound = new Sound();
     /*-------------------------------------------------------------------------------------------------------*/
 
     private ScreenButtons screenButtons;
 
-    private Font font;
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
 
     //makes the screen display
     public WelcomeScreen(){
@@ -24,6 +25,10 @@ public class WelcomeScreen extends JFrame {
 
 
         //added nextScreen Button here
+        sound.setFile(2);
+        sound.play();
+
+
 
         screenButtons = new ScreenButtons();
         screenButtons.setNextPage(this);
@@ -48,9 +53,9 @@ public class WelcomeScreen extends JFrame {
 
     //content of the welcome screen
     public void welcomeScreenContent(Graphics graphics){
-        font = new Font("Arial", Font.ITALIC, calculateFontSize());
+        //font = new Font("Arial", Font.ITALIC, calculateFontSize());
         paintComponents(graphics);
-        graphics.setFont(font);
+        graphics.setFont(getCustomFont);
         graphics.setColor(Color.BLACK);
 
         String message = "Welcome to the Bank :3!";

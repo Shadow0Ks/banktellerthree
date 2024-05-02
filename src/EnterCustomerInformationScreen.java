@@ -7,7 +7,7 @@ public class EnterCustomerInformationScreen extends JFrame {
 
     private ScreenButtons screenButtonsNextPage;
 
-    static final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
     static JTextField TextFirstName;
     static JTextField TextLastName;
     static JTextField TextMoneyBox;
@@ -34,39 +34,39 @@ public class EnterCustomerInformationScreen extends JFrame {
         setLayout(new GridLayout(6, 2, 3, 5));
 
         JLabel JFirstName = new JLabel("First Name:");
-        JFirstName.setFont(mainFont);
+        JFirstName.setFont(getCustomFont);
         add(JFirstName);
         TextFirstName = new JTextField();
-        TextFirstName.setFont(mainFont);
+        TextFirstName.setFont(getCustomFont);
         add(TextFirstName);
 
 
         JLabel JLastName = new JLabel("Last Name:");
-        JLastName.setFont(mainFont);
+        JLastName.setFont(getCustomFont);
         add(JLastName);
         TextLastName = new JTextField();
-        TextLastName.setFont(mainFont);
+        TextLastName.setFont(getCustomFont);
         add(TextLastName);
 
         JLabel JMoneyInBank = new JLabel("Money to deposit in Bank:");
-        JMoneyInBank.setFont(mainFont);
+        JMoneyInBank.setFont(getCustomFont);
         add(JMoneyInBank);
         TextMoneyBox = new JTextField();
-        TextMoneyBox.setFont(mainFont);
+        TextMoneyBox.setFont(getCustomFont);
         add(TextMoneyBox);
 
         JLabel JCreditScore = new JLabel("Your Credit Score:");
-        JCreditScore.setFont(mainFont);
+        JCreditScore.setFont(getCustomFont);
         add(JCreditScore);
         TextCreditScore = new JTextField();
-        TextCreditScore.setFont(mainFont);
+        TextCreditScore.setFont(getCustomFont);
         add(TextCreditScore);
 
         JLabel JCustomerID = new JLabel("Give yourself a 4 digit number ID:");
-        JCustomerID.setFont(mainFont);
+        JCustomerID.setFont(getCustomFont);
         add(JCustomerID);
         TextCustomerID = new JTextField();
-        TextCustomerID.setFont(mainFont);
+        TextCustomerID.setFont(getCustomFont);
         add(TextCustomerID);
 
 

@@ -13,7 +13,7 @@ public class DepositScreen extends JFrame{
     private String customerID;
     static JLabel JDepositMoney;
     private JTextField depositTextField;
-    private Font font;
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
 
     private String[] customerInfo;
     String csvFile = "src\\customer_data.csv";
@@ -36,7 +36,7 @@ public class DepositScreen extends JFrame{
         //screenButtons.ButtonThatTakesBackToWelcomeScreen();
     }
     public void depositScreenContent(){
-        font = new Font("Arial", Font.ITALIC, calculateFontSize() + 2);
+        //font = new Font("Arial", Font.ITALIC, calculateFontSize() + 2);
 
         int labelX = 100;
         int labelY = 50;
@@ -50,7 +50,7 @@ public class DepositScreen extends JFrame{
         add(depositButton);
 
         JDepositMoney = new JLabel("How much would you like to deposit: ");
-        JDepositMoney.setFont(font);
+        JDepositMoney.setFont(getCustomFont);
         JDepositMoney.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JDepositMoney);
         JDepositMoney.setVisible(true);
@@ -77,7 +77,7 @@ public class DepositScreen extends JFrame{
         drawRectangles(graphics);
     }
     private void writeToCSV() {
-       //check which customer I have pulled up from the CustomerInformationScreen
+        //check which customer I have pulled up from the CustomerInformationScreen
     }
 
 }

@@ -7,8 +7,9 @@ import java.util.List;
 public class CustomerIDSearch extends JFrame{
     public static int SCREEN_WIDTH = 800;
     public static int SCREEN_HEIGHT = 600;
+    Sound sound = new Sound();
     static String file = "src\\customer_data.csv";
-    final private Font mainFont = new Font ("Segeo Print", Font.BOLD, 18);
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
 
 
     static JTextField TextCustomerID;
@@ -30,7 +31,7 @@ public class CustomerIDSearch extends JFrame{
         setLayout(null);
 
         IDTextField = new JTextField();
-        IDTextField.setFont(mainFont);
+        IDTextField.setFont(getCustomFont);
         IDTextField.setBounds(200, 200, 200, 30);
         add(IDTextField);
 
@@ -39,7 +40,7 @@ public class CustomerIDSearch extends JFrame{
     }
     public void CustomerIDScreenInfo(Graphics graphics){
         paintComponents(graphics);
-        graphics.setFont(mainFont);
+        graphics.setFont(getCustomFont);
         graphics.setColor(Color.BLACK);
         String pageQuestion = "Enter your Customer ID";
         int x = (getWidth() - graphics.getFontMetrics().stringWidth(pageQuestion)) / 2;
@@ -80,7 +81,7 @@ public class CustomerIDSearch extends JFrame{
         String customerID = IDTextField.getText().trim(); // Trim to remove leading and trailing spaces
         boolean found = false;
         String[] customerInfo = null;
-
+        ;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -117,6 +118,7 @@ public class CustomerIDSearch extends JFrame{
             }
             else {
                 // Display customer information in CustomerInformationScreen
+
                 CustomerInformationScreen customerInformationScreen = new CustomerInformationScreen();
                 customerInformationScreen.displayCustomerInfo(customerInfo);
                 // Dispose the current frame

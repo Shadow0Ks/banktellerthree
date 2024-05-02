@@ -6,7 +6,7 @@ public class AccountQuestionScreen extends JFrame {
     public static int SCREEN_HEIGHT = 600;
     private ScreenButtons screenButtons;
 
-    static final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
     private JLabel pageQuestion;
 
 
@@ -32,7 +32,7 @@ public class AccountQuestionScreen extends JFrame {
 
     public void displayScreenQuestion(Graphics graphics){
         paintComponents(graphics);
-        graphics.setFont(mainFont);
+        graphics.setFont(getCustomFont);
         graphics.setColor(Color.BLACK);
 
 

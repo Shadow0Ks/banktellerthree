@@ -18,8 +18,9 @@ public class ScreenButtons extends JFrame implements ItemListener {
 
     private JButton goingToWork;
     private JButton endOfMonthButton;
+    Sound sound = new Sound();
 
-    final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
 
     int nextPageX = WelcomeScreen.SCREEN_WIDTH - 150;
     int nextPageY = WelcomeScreen.SCREEN_HEIGHT - 80;
@@ -43,6 +44,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(10);
+                            sound.play();
                             workingScreen.dispose();
                             CustomerIDSearch customerIDSearch = new CustomerIDSearch();
                             //customerIDSearch.setVisible(true);
@@ -94,6 +97,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(0);
+                            sound.play();
                             welcomeScreen.dispose();
                             AccountQuestionScreen accountQuestionScreen = new AccountQuestionScreen();
                             accountQuestionScreen.setVisible(true);
@@ -117,6 +122,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(3);
+                            sound.play();
                             EnterCustomerInformationScreen.saveCustomerInfo();
                             customerInformationScreen.dispose();
                             AccountQuestionScreen accountQuestionScreen = new AccountQuestionScreen();
@@ -149,7 +156,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                         @Override
                         public void run() {
                             accountQuestionScreen.dispose();
-
+                            sound.setFile(5);
+                            sound.play();
                             //set the next screen after that
 
                             CustomerIDSearch customerIDSearch = new CustomerIDSearch();
@@ -210,6 +218,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(9);
+                            sound.play();
                             CustomerIDSearch.checkCustomerID();
                             customerIDSearch.dispose();
                         }
@@ -268,6 +278,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(7);
+                            sound.play();
                             customerInformationScreen.dispose();
                             LoanScreen loanScreen = new LoanScreen();
                         }
@@ -294,6 +306,8 @@ public class ScreenButtons extends JFrame implements ItemListener {
                     EventQueue.invokeLater(new Runnable() {
                         @Override
                         public void run() {
+                            sound.setFile(7);
+                            sound.play();
                             SwingUtilities.invokeLater(() -> {
                                 customerInformationScreen.dispose();
                                 DepositScreen depositScreen = new DepositScreen();

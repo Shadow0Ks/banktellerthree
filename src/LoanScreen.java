@@ -13,7 +13,7 @@ public class LoanScreen extends JFrame{
     private ScreenButtons screenButtons;
 
 
-    private Font font;
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
 
 
     ///////////////////////////////
@@ -30,15 +30,16 @@ public class LoanScreen extends JFrame{
         JTextMonthlyIncome = new JTextField();
         add(JTextMonthlyIncome);
 
-
         ///////////////////////////////////////////////////////////////////////
         //adding button that calculates intrest
         JButton calculateButton = new JButton("Calculate Interest");
         calculateButton.setBounds(100, 100, 200, 30);
         add(calculateButton);
         calculateButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 double monthlyIncome = Double.parseDouble(JTextMonthlyIncome.getText());
                 int creditScore = CustomerIDSearch.creditScore; // Access credit score directly
                 double interestRate = LoanCalculations.calculateLoanInterest(5.0, creditScore, monthlyIncome);
@@ -55,9 +56,9 @@ public class LoanScreen extends JFrame{
     }
 
     public void LoanScreenContent(Graphics graphics){
-        font = new Font("Arial", Font.BOLD, calculateFontSize() + 4);
+        //font = new Font("Arial", Font.BOLD, calculateFontSize() + 4);
         paintComponents(graphics);
-        graphics.setFont(font);
+        graphics.setFont(getCustomFont);
         graphics.setColor(Color.BLACK);
 
         String monthlyIncomeMessage = "Please Enter your monthly Income?";

@@ -7,13 +7,14 @@ public class CustomerInformationScreen extends JFrame {
 
     private ScreenButtons screenButtons;
 
-    final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
+    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
     static JLabel JFirstName;
     static JLabel JLastName;
     static JLabel JMoneyInBank;
     static JLabel JCreditScore;
     static JLabel JCustomerID;
     public CustomerInformationScreen(){
+
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -37,7 +38,7 @@ public class CustomerInformationScreen extends JFrame {
 //        formPanel.setLayout(new GridLayout(5, 1, 5, 5));
 
         JFirstName = new JLabel("First Name:");
-        JFirstName.setFont(mainFont);
+        JFirstName.setFont(getCustomFont);
         JFirstName.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JFirstName);
         //formPanel.add(JFirstName);
@@ -46,7 +47,7 @@ public class CustomerInformationScreen extends JFrame {
         labelY += labelHeight + gap;
 
         JLastName = new JLabel("Last Name:");
-        JLastName.setFont(mainFont);
+        JLastName.setFont(getCustomFont);
         JLastName.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JLastName);
         //formPanel.add(JLastName);
@@ -55,7 +56,7 @@ public class CustomerInformationScreen extends JFrame {
         //adjusts for screen position
         labelY += labelHeight + gap;
         JMoneyInBank = new JLabel("Money in Bank:");
-        JMoneyInBank.setFont(mainFont);
+        JMoneyInBank.setFont(getCustomFont);
         JMoneyInBank.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JMoneyInBank);
         //formPanel.add(JMoneyInBank);
@@ -64,7 +65,7 @@ public class CustomerInformationScreen extends JFrame {
         labelY += labelHeight + gap;
 
         JCreditScore = new JLabel("Your Credit Score:");
-        JCreditScore.setFont(mainFont);
+        JCreditScore.setFont(getCustomFont);
         JCreditScore.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JCreditScore);
         //formPanel.add(JCreditScore);
@@ -73,7 +74,7 @@ public class CustomerInformationScreen extends JFrame {
         labelY += labelHeight + gap;
 
         JCustomerID = new JLabel("4 digit number ID:");
-        JCustomerID.setFont(mainFont);
+        JCustomerID.setFont(getCustomFont);
         JCustomerID.setBounds(labelX,labelY,labelWidth,labelHeight);
         add(JCustomerID);
         //formPanel.add(JCustomerID);
