@@ -7,7 +7,7 @@ public class EnterCustomerInformationScreen extends JFrame {
 
     private ScreenButtons screenButtonsNextPage;
 
-    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
+    final private Font getCustomFont = FontLoader.loadFont("src\\minecraft.ttf", Font.PLAIN, 20);
     static JTextField TextFirstName;
     static JTextField TextLastName;
     static JTextField TextMoneyBox;

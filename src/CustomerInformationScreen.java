@@ -7,7 +7,7 @@ public class CustomerInformationScreen extends JFrame {
 
     private ScreenButtons screenButtons;
 
-    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
+    final private Font getCustomFont = FontLoader.loadFont("src\\minecraft.ttf", Font.PLAIN, 20);
     static JLabel JFirstName;
     static JLabel JLastName;
     static JLabel JMoneyInBank;

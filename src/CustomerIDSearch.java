@@ -9,7 +9,7 @@ public class CustomerIDSearch extends JFrame{
     public static int SCREEN_HEIGHT = 600;
     Sound sound = new Sound();
     static String file = "src\\customer_data.csv";
-    final private Font getCustomFont = FontLoader.loadFont("src\\ProximaNova.otf", Font.PLAIN, 20);
+    final private Font getCustomFont = FontLoader.loadFont("src\\minecraft.ttf", Font.PLAIN, 20);
 
 
     static JTextField TextCustomerID;
