@@ -18,12 +18,42 @@ public class ScreenButtons extends JFrame implements ItemListener {
 
     private JButton goingToWork;
     private JButton endOfMonthButton;
+
+    private JButton goToSeeOptionsScreen;
     Sound sound = new Sound();
 
     final private Font getCustomFont = FontLoader.loadFont("src\\minecraft.ttf", Font.PLAIN, 20);
 
     int nextPageX = WelcomeScreen.SCREEN_WIDTH - 150;
     int nextPageY = WelcomeScreen.SCREEN_HEIGHT - 80;
+
+    public void optionsPresentScreen(CustomerInformationScreen customerInformationScreen){
+        int buttonWidth = 200;
+        int buttonHeight = 50;
+        int buttonX = 10;
+        int buttonY = (nextPageY - buttonHeight) - 3;
+
+        goToSeeOptionsScreen = new JButton("Options Screen");
+        goToSeeOptionsScreen.setBounds(buttonX,buttonY,buttonWidth,buttonHeight);
+        add(goToSeeOptionsScreen,BorderLayout.SOUTH);
+        customerInformationScreen.add(goToSeeOptionsScreen);
+
+        goToSeeOptionsScreen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               if (e.getSource() == goToSeeOptionsScreen){
+                   EventQueue.invokeLater(new Runnable() {
+                       @Override
+                       public void run() {
+                           customerInformationScreen.dispose();
+                           OptionsScreen optionsScreen = new OptionsScreen();
+                           optionsScreen.setVisible(true);
+                       }
+                   });
+               }
+            }
+        });
+    }
 
     public void ToNextMonth(AnimationWorkingScreen workingScreen){
 

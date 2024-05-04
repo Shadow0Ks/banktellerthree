@@ -91,7 +91,7 @@ public class DepositScreen extends JFrame {
         });
     }
 
-    private void validateInput() {
+    public void validateInput() {
         String depositText = depositTextField.getText().trim();
         if (depositText.isEmpty()) {
             System.out.println("Please enter a valid deposit amount.");
@@ -107,7 +107,7 @@ public class DepositScreen extends JFrame {
         }
     }
 
-    private String[] readCustomerData(String customerID) {
+    public String[] readCustomerData(String customerID) {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))){
             String line;
             while ((line = br.readLine()) != null){
@@ -122,7 +122,7 @@ public class DepositScreen extends JFrame {
         return null;
     }
 
-    private void writeToCSV(String data) {
+    public void writeToCSV(String data) {
         try (FileWriter writer = new FileWriter(csvFile, true);
              BufferedWriter bw = new BufferedWriter(writer);
              PrintWriter out = new PrintWriter(bw)) {
@@ -135,7 +135,7 @@ public class DepositScreen extends JFrame {
 
 
 
-    private void updateBalanceAndWriteToCSV(double depositAmount) {
+    public void updateBalanceAndWriteToCSV(double depositAmount) {
         String customerID = "4491"; // Assuming a customer ID for testing
         String[] customerData = readCustomerData(customerID);
         if (customerData != null) {
