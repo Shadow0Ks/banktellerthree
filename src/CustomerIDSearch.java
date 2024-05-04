@@ -98,7 +98,7 @@ public class CustomerIDSearch extends JFrame{
 
                     if (idFromFile.equals(customerID)) {
                         found = true;
-                        creditScore = Integer.parseInt(data[3]);
+                        creditScore = Integer.parseInt(data[3].trim());
 
 
                         customerInfo = data;
