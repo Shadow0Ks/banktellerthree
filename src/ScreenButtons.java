@@ -45,9 +45,11 @@ public class ScreenButtons extends JFrame implements ItemListener {
                    EventQueue.invokeLater(new Runnable() {
                        @Override
                        public void run() {
+
                            customerInformationScreen.dispose();
                            OptionsScreen optionsScreen = new OptionsScreen();
                            optionsScreen.setVisible(true);
+
                        }
                    });
                }

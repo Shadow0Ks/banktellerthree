@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
@@ -10,6 +12,7 @@ public class RiddleScreen extends JFrame {
     private JTextArea textArea;
     private ScreenButtons screenButtons;
     private String[] stories;
+    Sound sound = new Sound();
 
     public RiddleScreen(){
         setTitle("Bank Teller - Riddle Me this");
@@ -22,8 +25,6 @@ public class RiddleScreen extends JFrame {
         setLayout(null);
 
        screenRiddleContent();
-
-
 
 
     }
@@ -128,7 +129,8 @@ public class RiddleScreen extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3 && e.getClickCount() == 2) {
-                    //this will display which question screen
+                    //textArea.setText("");
+                    screenEyeColorOptions();
 
                 }
             }
@@ -136,16 +138,54 @@ public class RiddleScreen extends JFrame {
 
     }
 
+    public void screenEyeColorOptions() {
+        JFrame colorOptionsFrame = new JFrame("Color Options");
+        colorOptionsFrame.setSize(300, 200);
+        colorOptionsFrame.setLocationRelativeTo(null);
+        colorOptionsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        colorOptionsFrame.setLayout(new GridLayout(1, 3));
 
+        JButton greenButton = new JButton("Green");
+        JButton blueButton = new JButton("Blue");
+        JButton brownButton = new JButton("Brown");
 
+        greenButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkAnswer("green");
+                colorOptionsFrame.dispose(); // Close the color options frame
+                CustomerIDSearch customerIDSearch = new CustomerIDSearch();
+                customerIDSearch.setVisible(true);
+            }
+        });
 
+        blueButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkAnswer("blue");
+                colorOptionsFrame.dispose(); // Close the color options frame
+                CustomerIDSearch customerIDSearch = new CustomerIDSearch();
+                customerIDSearch.setVisible(true);
+            }
+        });
+
+        brownButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkAnswer("brown");
+                colorOptionsFrame.dispose(); // Close the color options frame
+                sound.stop();
+                CustomerIDSearch customerIDSearch = new CustomerIDSearch();
+                customerIDSearch.setVisible(true);
+            }
+        });
+
+        colorOptionsFrame.add(greenButton);
+        colorOptionsFrame.add(blueButton);
+        colorOptionsFrame.add(brownButton);
+
+        colorOptionsFrame.setVisible(true);
+    }
     private void displayStory(int index) {
         textArea.setText(stories[index]);
     }
-
-
-
-
 
     private String getColorName(Color color) {
         if (color.equals(Color.GREEN))
@@ -157,7 +197,14 @@ public class RiddleScreen extends JFrame {
         else
             return "unknown";
     }
-
+    private void checkAnswer(String chosenColor) {
+        String correctColor = "brown";
+        if (chosenColor.equals(correctColor)) {
+            JOptionPane.showMessageDialog(null, "Congratulations! You chose the correct answer.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Sorry, that's not the correct answer.");
+        }
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

@@ -1,20 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class CustomerInformationScreen extends JFrame {
     public static int SCREEN_WIDTH = 800;
     public static int SCREEN_HEIGHT = 600;
-
     private ScreenButtons screenButtons;
-
+    static String customerID = "4491"; // Example customer ID
     final private Font getCustomFont = FontLoader.loadFont("src\\minecraft.ttf", Font.PLAIN, 20);
     static JLabel JFirstName;
     static JLabel JLastName;
     static JLabel JMoneyInBank;
     static JLabel JCreditScore;
     static JLabel JCustomerID;
-    public CustomerInformationScreen(){
 
+    private static final String DEFAULT_CUSTOMER_ID = "4491";
+    public CustomerInformationScreen(){
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,4 +102,6 @@ public class CustomerInformationScreen extends JFrame {
         JCustomerID.setText("4 digit number ID: " + customerInfo[4]);
 
     }
+
+
 }

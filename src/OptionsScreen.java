@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class OptionsScreen extends JFrame {
+    Sound sound = new Sound();
 
     public OptionsScreen(){
         setTitle("Options");
@@ -18,13 +19,14 @@ public class OptionsScreen extends JFrame {
         buyCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Open the screen for buying a car
-                CarBuyingScreen carBuyingScreen = new CarBuyingScreen();
-                carBuyingScreen.setVisible(true);
+
                 dispose(); // Close the current screen
             }
         });
 
+
+
+        //RIDDLE ME THIS
         JButton playRiddleButton = new JButton("Play a Riddle");
         playRiddleButton.addActionListener(new ActionListener() {
             @Override
@@ -32,6 +34,8 @@ public class OptionsScreen extends JFrame {
                 // Open the screen for playing a riddle
                 RiddleScreen riddleScreen = new RiddleScreen();
                 riddleScreen.setVisible(true);
+                sound.setFile(4);
+                sound.play();
                 dispose(); // Close the current screen
             }
         });
