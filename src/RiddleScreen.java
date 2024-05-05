@@ -153,6 +153,7 @@ public class RiddleScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 checkAnswer("green");
                 colorOptionsFrame.dispose(); // Close the color options frame
+                sound.stop();
                 CustomerIDSearch customerIDSearch = new CustomerIDSearch();
                 customerIDSearch.setVisible(true);
             }
@@ -160,7 +161,9 @@ public class RiddleScreen extends JFrame {
 
         blueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 checkAnswer("blue");
+                sound.stop();
                 colorOptionsFrame.dispose(); // Close the color options frame
                 CustomerIDSearch customerIDSearch = new CustomerIDSearch();
                 customerIDSearch.setVisible(true);
