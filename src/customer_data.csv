@@ -1,5 +1,4 @@
 First name,Last Name,moneyInBank,creditScore,customerID
-
 John,Cook,8000,800,2119
 Nar,Whale,0,590,2110
 Noah,Reek,1000,650,9001
@@ -11,4 +10,4 @@ Zero,Requiem,8819991,700,5781
 Derk,Derkinator,1.16,300,7183
 Hello,Waku,417417,899,4141
 Pointers,Point,81841,560,8319
-Mahmoud, Alqaisi, 55600.0, 700, 4491
+Mahmoud,   Alqaisi, 8600.0,   700,   4491
